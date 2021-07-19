@@ -25,8 +25,8 @@
                         <td>{{ $package->giorni_permanenza }}</td>
                         <td>{{ $package->data_partenza }}</td>
                         <td>
-                            <a href="{{ route('packages.show', $package->id) }}">View</a> | {{-- <a
-                                href="{{ route('packages.edit', $package->id) }}">Edit</a> --}}
+                            <a href="{{ route('packages.show', $package->id) }}">View</a> | <a
+                                href="{{ route('packages.edit', $package->id) }}">Edit</a>
                             {{-- <form action="{{ route('packages.destroy', $package->id) }}" method='post'>
                                 @csrf
                                 @method('DELETE')
