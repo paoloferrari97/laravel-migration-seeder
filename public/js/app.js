@@ -19385,7 +19385,7 @@ var app = new Vue({
   data: {},
   methods: {
     cancel: function cancel(event) {
-      if (!confirm('Sei sicuro di voler eliminare definitivamente questo fumetto?')) {
+      if (!confirm('Sei sicuro di voler eliminare definitivamente questo pacchetto vacanza?')) {
         event.preventDefault();
       }
     }
