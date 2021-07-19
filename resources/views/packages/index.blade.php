@@ -30,7 +30,7 @@
                             <form action="{{ route('packages.destroy', $package->id) }}" method='post'>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" {{-- @click="cancel($event)" --}} class="btn btn-danger">!DELETE!</button>
+                                <button type="submit" @click="cancel($event)" class="btn btn-danger">!DELETE!</button>
                             </form>
                         </td>
                     </tr>
