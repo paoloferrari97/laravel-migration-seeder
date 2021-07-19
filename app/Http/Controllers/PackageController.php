@@ -37,7 +37,17 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newPackage = new Package;
+        $newPackage->destinazione = $data['destinazione'];
+        $newPackage->prezzo = $data['prezzo'];
+        $newPackage->giorni_permanenza = $data['giorni_permanenza'];
+        $newPackage->data_partenza = $data['data_partenza'];
+
+        $newPackage->save();
+
+        return redirect()->route('packages.show', $newPackage->id);
     }
 
     /**
