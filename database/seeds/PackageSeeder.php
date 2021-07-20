@@ -16,7 +16,7 @@ class PackageSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $package = new Package();
 
-            $package->destinazione = $faker->countryCode();
+            $package->destinazione = $faker->state();
             $package->prezzo = $faker->numberBetween(200, 5000);
             $package->giorni_permanenza = $faker->numberBetween(2, 28);
             $package->data_partenza = $faker->dateTime();

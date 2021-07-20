@@ -37,7 +37,7 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        /* $data = $request->all();
 
         $newPackage = new Package;
         $newPackage->destinazione = $data['destinazione'];
@@ -47,7 +47,18 @@ class PackageController extends Controller
 
         $newPackage->save();
 
-        return redirect()->route('packages.show', $newPackage->id);
+        return redirect()->route('packages.show', $newPackage->id); */
+
+        $validated = $request->validate([
+            'destinazione' => 'required|max:255',
+            'prezzo' => 'required|numeric',
+            'giorni_permanenza' => 'required|numeric',
+            'data_partenza' => 'required|date'
+        ]);
+
+        Package::create($validated);
+
+        return redirect()->route('packages.index');
     }
 
     /**
@@ -81,11 +92,22 @@ class PackageController extends Controller
      */
     public function update(Request $request, Package $package)
     {
-        $data = $request->all();
+        /* $data = $request->all();
 
         $package->update($data);
 
-        return redirect()->route('packages.show', $package->id);
+        return redirect()->route('packages.show', $package->id); */
+
+        $validated = $request->validate([
+            'destinazione' => 'required|max:255',
+            'prezzo' => 'required|numeric',
+            'giorni_permanenza' => 'required|numeric',
+            'data_partenza' => 'required|date'
+        ]);
+
+        $package->update($validated);
+
+        return redirect()->route('packages.index');
     }
 
     /**
